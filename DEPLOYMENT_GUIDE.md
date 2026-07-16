@@ -90,14 +90,10 @@ browser window. Insert that URL into the Portfolio Task 1 report.
 
 ### `ModuleNotFoundError: No module named 'joblib'`
 
-Confirm that `requirements.txt` is at the repository root and contains:
-
-```text
-joblib==1.5.3
-```
-
-Commit the correction. Community Cloud should rebuild automatically. Reboot the
-app from **Manage app** if required.
+The app now loads the persisted bundle with the Python standard library, so it
+should not require a separate `joblib` install at runtime. If the cloud app
+still shows an old error, commit the dependency change, then reboot the app
+from **Manage app** so Community Cloud rebuilds the environment.
 
 ### Model file not found
 

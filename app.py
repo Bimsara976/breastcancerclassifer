@@ -1,6 +1,6 @@
 from pathlib import Path
+import pickle
 
-import joblib
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -24,7 +24,8 @@ def load_model_bundle():
             f"Model file not found at {MODEL_PATH}. "
             "Run the notebook and commit the model folder."
         )
-    return joblib.load(MODEL_PATH)
+    with MODEL_PATH.open("rb") as model_file:
+        return pickle.load(model_file)
 
 
 def validate_batch(frame: pd.DataFrame, required_columns: list[str]) -> pd.DataFrame:
